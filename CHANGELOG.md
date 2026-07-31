@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.2 — 2026-07-31
+
+- Site oficial `frstt.dev` adicionado ao painel, aos metadados e ao relatório local.
+- Links de autoria atualizados na documentação.
+
 ## 1.0.1 — 2026-07-31
 
 - Cabeçalho do painel simplificado para exibir somente o nome Kerosene e o crédito `created by @frstt`.
