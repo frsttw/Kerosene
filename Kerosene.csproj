@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net48</TargetFramework>
+    <AssemblyName>Kerosene</AssemblyName>
+    <RootNamespace>Kerosene</RootNamespace>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <ApplicationIcon>assets\Kerosene.ico</ApplicationIcon>
+    <ApplicationManifest>Kerosene.manifest</ApplicationManifest>
+    <Platforms>AnyCPU</Platforms>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="src\Kerosene.cs" />
+  </ItemGroup>
+</Project>
+
