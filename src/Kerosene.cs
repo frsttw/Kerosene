@@ -9,12 +9,14 @@ using System.Text.RegularExpressions;
 using System.Threading;
 
 [assembly: AssemblyTitle("Kerosene")]
-[assembly: AssemblyDescription("Recuperação adaptativa de desempenho após jogos pesados")]
+[assembly: AssemblyDescription("Recuperação adaptativa de desempenho após jogos pesados | frstt.dev")]
 [assembly: AssemblyCompany("created by @frstt")]
 [assembly: AssemblyProduct("Kerosene")]
 [assembly: AssemblyCopyright("created by @frstt")]
-[assembly: AssemblyVersion("1.0.1.0")]
-[assembly: AssemblyFileVersion("1.0.1.0")]
+[assembly: AssemblyTrademark("frstt.dev")]
+[assembly: AssemblyMetadata("Website", "https://frstt.dev")]
+[assembly: AssemblyVersion("1.0.2.0")]
+[assembly: AssemblyFileVersion("1.0.2.0")]
 
 internal static class KeroseneApp
 {
@@ -195,7 +197,7 @@ internal static class KeroseneApp
         WL(Lavender, ConsoleColor.DarkMagenta, "║  ██╔═██╗ ██╔══╝  ██╔══██╗██║   ██║╚════██║██╔══╝  ██║╚██╗██║██╔══╝                ║");
         WL(Pink, ConsoleColor.Magenta,   "║  ██║  ██╗███████╗██║  ██║╚██████╔╝███████║███████╗██║ ╚████║███████╗              ║");
         WL(Purple, ConsoleColor.Magenta, "║  ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚══════╝╚═╝  ╚═══╝╚══════╝              ║");
-        WL(Gray, ConsoleColor.DarkGray,  "║                               created by @frstt                                     ║");
+        WL(Gray, ConsoleColor.DarkGray,  "║                        created by @frstt  •  frstt.dev                              ║");
         WL(Purple, ConsoleColor.Magenta, "╚══════════════════════════════════════════════════════════════════════════════════════╝");
         Console.WriteLine();
     }
@@ -393,7 +395,7 @@ internal static class KeroseneApp
         WL(Purple, ConsoleColor.Magenta, "  └────────────────────────────────────────────────────────────────────────┘");
         Console.WriteLine();
         WL(Green, ConsoleColor.Green, "  [ SYSTEM STABILIZED ]  Recuperação concluída.");
-        WL(Gray, ConsoleColor.DarkGray, "  created by @frstt");
+        WL(Gray, ConsoleColor.DarkGray, "  created by @frstt  •  frstt.dev");
     }
 
     private static void WriteLog(Result result)
@@ -405,7 +407,7 @@ internal static class KeroseneApp
                 "Kerosene");
             Directory.CreateDirectory(directory);
             string text = String.Format(
-                "Kerosene - created by @frstt\r\n{0:yyyy-MM-dd HH:mm:ss}\r\n" +
+                "Kerosene - created by @frstt - frstt.dev\r\n{0:yyyy-MM-dd HH:mm:ss}\r\n" +
                 "RAM total: {1} MB\r\nRAM disponível: {2} -> {3} MB\r\n" +
                 "Carga: {4}% -> {5}%\r\nPrioridades ajustadas: {6}\r\n" +
                 "Auxiliares reduzidos: {7}\r\nStandby necessária: {8}\r\n" +
@@ -462,7 +464,7 @@ internal static class KeroseneApp
             Console.WriteLine();
             WL(Yellow, ConsoleColor.Yellow, "  [!] A recuperação encontrou um erro nesta máquina:");
             WL(White, ConsoleColor.White, "      " + error.Message);
-            WL(Gray, ConsoleColor.DarkGray, "      created by @frstt");
+            WL(Gray, ConsoleColor.DarkGray, "      created by @frstt  •  frstt.dev");
             CountdownAndClose(8);
             return 1;
         }

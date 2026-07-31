@@ -4,14 +4,26 @@
 
 # KEROSENE
 
-`created by @frstt`
+`created by @frstt` · [GitHub @frsttw](https://github.com/frsttw) · [frstt.dev](https://frstt.dev)
 
 <br>
 
 ![Windows](https://img.shields.io/badge/Windows-10_%7C_11-B46BFF?style=for-the-badge&logo=windows11&logoColor=white)
 ![.NET](https://img.shields.io/badge/.NET_Framework-4.8-CE7EFF?style=for-the-badge&logo=dotnet&logoColor=17121F)
-![Version](https://img.shields.io/badge/version-1.0.1-EFAAFF?style=for-the-badge&logoColor=17121F)
+![Version](https://img.shields.io/badge/version-1.0.2-EFAAFF?style=for-the-badge&logoColor=17121F)
 ![License](https://img.shields.io/badge/license-MIT-78EBAA?style=for-the-badge)
+
+<br><br>
+
+<a href="https://github.com/frsttw/Kerosene/releases/latest/download/Kerosene.exe">
+  <img src="https://img.shields.io/badge/BAIXAR_KEROSENE-.EXE-78EBAA?style=for-the-badge&logo=windows11&logoColor=17121F" alt="Baixar Kerosene.exe">
+</a>
+
+<br>
+
+<sub>Executável portátil para Windows 10/11 — não requer instalação.</sub>
+
+<br><br>
 
 **Recupere a responsividade do Windows depois de sessões pesadas de jogo.**
 
@@ -97,4 +109,4 @@ Kerosene/
 
 Distribuído sob a licença MIT.
 
-**Kerosene — created by [@frstt](https://github.com/frsttw)**
+**Kerosene — created by @frstt · [GitHub @frsttw](https://github.com/frsttw) · [frstt.dev](https://frstt.dev)**
