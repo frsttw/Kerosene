@@ -4,7 +4,6 @@
 
 - Site oficial `frstt.dev` adicionado ao painel, aos metadados e ao relatório local.
 - Links de autoria atualizados na documentação.
-- Botão de download direto adicionado ao README e executável preparado para publicação em Releases.
 
 ## 1.0.1 — 2026-07-31
 
