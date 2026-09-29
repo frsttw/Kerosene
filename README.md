@@ -19,12 +19,6 @@
 
 ---
 
-<div align="center">
-
-<img src="docs/panel-preview.png" width="820" alt="Kerosene panel running">
-
-</div>
-
 ## About
 
 Kerosene is a portable Windows utility that analyzes system state, applies conservative adjustments, and closes automatically. Open the executable whenever you want to restore your computer's responsiveness.
