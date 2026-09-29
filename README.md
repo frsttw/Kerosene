@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="docs/icon-preview.png" width="190" alt="Ícone do Kerosene">
+<img src="docs/icon-preview.png" width="190" alt="Kerosene icon">
 
 # KEROSENE
 
@@ -13,7 +13,7 @@
 ![Version](https://img.shields.io/badge/version-1.0.2-EFAAFF?style=for-the-badge&logoColor=17121F)
 ![License](https://img.shields.io/badge/license-MIT-78EBAA?style=for-the-badge)
 
-**Recupere a responsividade do Windows depois de sessões pesadas de jogo.**
+**Recover Windows responsiveness after demanding gaming sessions.**
 
 </div>
 
@@ -21,80 +21,80 @@
 
 <div align="center">
 
-<img src="docs/panel-preview.png" width="820" alt="Painel do Kerosene em execução">
+<img src="docs/panel-preview.png" width="820" alt="Kerosene panel in action">
 
 </div>
 
-## Sobre
+## Overview
 
-Kerosene é um utilitário portátil para Windows que analisa o estado do sistema, aplica ajustes conservadores e fecha automaticamente. Basta abrir o executável quando quiser recuperar a fluidez do computador.
+Kerosene is a portable Windows utility that analyzes system state, applies conservative adjustments, and closes automatically. Run the executable whenever you want to restore system responsiveness.
 
-O aplicativo não usa internet, não instala serviços, não fecha seus programas e não apaga arquivos, caches ou dados pessoais.
+The application does not use the internet, install services, close your programs, or delete files, caches, or personal data.
 
-## O que ele faz
+## What it does
 
 ```text
-[01] Mapeia a pressão de RAM e paginação
-[02] Reaplica o plano de energia que já está ativo
-[03] Normaliza launchers e processos auxiliares conhecidos
-[04] Preserva o cache ou libera standby somente sob pressão real
-[05] Valida o estado final e fecha automaticamente
+[01] Maps RAM and paging pressure
+[02] Reapplies the power plan that is already active
+[03] Normalizes known launchers and helper processes
+[04] Preserves cache or releases standby memory only under real pressure
+[05] Validates the final state and closes automatically
 ```
 
-- Mede a RAM física disponível e a carga de memória.
-- Reaplica somente o plano de energia atual, sem usar configurações específicas de uma máquina.
-- Normaliza prioridades elevadas de launchers conhecidos.
-- Reduz o working set apenas de auxiliares pesados e sem janela ativa.
-- Libera a memória standby somente quando a carga atinge 80% ou a disponibilidade cai abaixo da reserva adaptativa.
-- Salva o relatório mais recente em `%LOCALAPPDATA%\Kerosene\last-run.log`.
+- Measures available physical RAM and memory load.
+- Reapplies only the current power plan without machine-specific settings.
+- Normalizes elevated priorities for known launchers.
+- Reduces the working set only for heavy helpers without an active window.
+- Releases standby memory only when load reaches 80% or availability falls below the adaptive reserve.
+- Saves the latest report to `%LOCALAPPDATA%\Kerosene\last-run.log`.
 
-## Segurança
+## Safety
 
-O Kerosene foi projetado para agir de maneira previsível e reversível:
+Kerosene is designed to behave predictably and reversibly:
 
-- não fecha navegadores, documentos, jogos ou aplicativos de trabalho;
-- não apaga arquivos temporários nem caches de jogos;
-- não cria alterações permanentes no Registro;
-- não instala serviços ou componentes em segundo plano;
-- não força um plano de energia diferente;
-- não executa limpeza agressiva de memória.
+- does not close browsers, documents, games, or work applications;
+- does not delete temporary files or game caches;
+- does not create permanent Registry changes;
+- does not install services or background components;
+- does not force a different power plan;
+- does not perform aggressive memory cleanup.
 
-## Usar
+## Usage
 
-Baixe ou compile `dist\Kerosene.exe` e execute o arquivo. O Windows solicitará permissão administrativa porque algumas APIs de gerenciamento de memória exigem elevação.
+Download or build `dist\Kerosene.exe` and run it. Windows requests administrator permission because some memory-management APIs require elevation.
 
-O painel executa todo o processo sem interação e fecha sozinho após a conclusão.
+The panel runs the entire process without interaction and closes by itself when it finishes.
 
-## Compilar
+## Build
 
-Requisitos: Windows 10 ou 11 com .NET Framework 4.x.
+Requirements: Windows 10 or 11 with .NET Framework 4.x.
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\build.ps1
 ```
 
-O executável será criado em `dist\Kerosene.exe` com:
+The executable is created at `dist\Kerosene.exe` with:
 
-- plataforma `AnyCPU`;
-- manifesto administrativo incorporado;
-- ícone oficial multirresolução;
-- metadados de produto e autoria.
+- `AnyCPU` platform;
+- embedded administrator manifest;
+- official multi-resolution icon;
+- product and authorship metadata.
 
 ## Estrutura
 
 ```text
 Kerosene/
-├── assets/              # Arte original e ícone do aplicativo
+├── assets/              # Original artwork and application icon
 ├── dist/                # Executável portátil
-├── docs/                # Imagens da documentação
+├── docs/                # Documentation images
 ├── src/Kerosene.cs      # Fonte canônica
 ├── build.ps1            # Build pelo compilador do .NET Framework
 ├── Kerosene.csproj      # Projeto .NET Framework 4.8
-└── Kerosene.manifest    # Elevação e compatibilidade do Windows
+└── Kerosene.manifest    # Windows elevation and compatibility
 ```
 
-## Licença e créditos
+## License and credits
 
-Distribuído sob a licença MIT.
+Distributed under the MIT License.
 
 **Kerosene — created by @frstt · [GitHub @frsttw](https://github.com/frsttw) · [frstt.dev](https://frstt.dev)**
