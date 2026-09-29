@@ -437,7 +437,7 @@ internal static class KeroseneApp
         for (int remaining = seconds; remaining > 0; remaining--)
         {
             Console.Write("\r");
-            W(Gray, ConsoleColor.DarkGray, "  Fechando automaticamente em ");
+            W(Gray, ConsoleColor.DarkGray, "  Closing automatically in ");
             W(Pink, ConsoleColor.Magenta, remaining.ToString());
             W(Gray, ConsoleColor.DarkGray, " second(s)...   ");
             Thread.Sleep(1000);
