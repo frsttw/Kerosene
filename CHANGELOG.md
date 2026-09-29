@@ -2,23 +2,23 @@
 
 ## 1.0.2 — 2026-07-31
 
-- Site oficial `frstt.dev` adicionado ao painel, aos metadados e ao relatório local.
-- Links de autoria atualizados na documentação.
+- Added the official `frstt.dev` website to the panel, metadata, and local report.
+- Updated authorship links throughout the documentation.
 
 ## 1.0.1 — 2026-07-31
 
-- Cabeçalho do painel simplificado para exibir somente o nome Kerosene e o crédito `created by @frstt`.
-- Título da janela reduzido para `KEROSENE`.
-- README reformulado com a identidade visual oficial do projeto.
+- Simplified the panel header to show only the Kerosene name and `created by @frstt` credit.
+- Reduced the window title to `KEROSENE`.
+- Reworked the README around the official visual identity.
 
 ## 1.0.0 — 2026-07-31
 
-- Primeira versão pública do Kerosene.
-- Painel automático de terminal com identidade visual roxa.
-- Crédito `created by @frstt` no painel e nos metadados.
-- Reaplicação portátil do plano de energia ativo.
-- Normalização de prioridades de launchers.
-- Redução seletiva de processos auxiliares pesados.
-- Limpeza adaptativa da memória standby somente sob pressão real.
-- Ícone multirresolução baseado na arte original fornecida por @frstt.
-- Relatório local da última execução.
+- First public Kerosene release.
+- Automatic terminal panel with a purple visual identity.
+- `created by @frstt` credit in the panel and metadata.
+- Portable reapplication of the active power plan.
+- Launcher priority normalization.
+- Selective trimming of heavy helper processes.
+- Adaptive standby-memory cleanup only under real pressure.
+- Multi-resolution icon based on the original artwork supplied by @frstt.
+- Local report of the latest run.

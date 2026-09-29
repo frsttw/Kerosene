@@ -9,7 +9,7 @@ using System.Text.RegularExpressions;
 using System.Threading;
 
 [assembly: AssemblyTitle("Kerosene")]
-[assembly: AssemblyDescription("Recuperação adaptativa de desempenho após jogos pesados | frstt.dev")]
+[assembly: AssemblyDescription("Adaptive performance recovery after demanding games | frstt.dev")]
 [assembly: AssemblyCompany("created by @frstt")]
 [assembly: AssemblyProduct("Kerosene")]
 [assembly: AssemblyCopyright("created by @frstt")]
@@ -96,7 +96,7 @@ internal static class KeroseneApp
         public bool StandbyNeeded;
         public bool StandbyPurged;
         public bool PowerPlanRefreshed;
-        public string PowerPlanName = "Plano atual";
+        public string PowerPlanName = "Current plan";
         public readonly List<string> Errors = new List<string>();
     }
 
@@ -256,7 +256,7 @@ internal static class KeroseneApp
 
     private static bool RefreshCurrentPowerPlan(out string planName)
     {
-        planName = "Plano atual";
+        planName = "Current plan";
         try
         {
             var readInfo = new ProcessStartInfo
@@ -340,7 +340,7 @@ internal static class KeroseneApp
             }
             catch
             {
-                // Processos podem encerrar ou bloquear acesso durante a varredura.
+                // Processes may exit or deny access during the scan.
             }
             finally
             {
@@ -357,23 +357,23 @@ internal static class KeroseneApp
         result.BeforeAvailableMb = before.AvailablePhysical / 1024 / 1024;
         result.BeforeLoad = before.MemoryLoad;
 
-        Stage("01", "Mapeando pressão de RAM e paginação");
+        Stage("01", "Mapping RAM and paging pressure");
         result.PowerPlanRefreshed = RefreshCurrentPowerPlan(out result.PowerPlanName);
-        Stage("02", "Reaplicando o plano de energia atual");
+        Stage("02", "Reapplying the current power plan");
         TuneLaunchers(result);
-        Stage("03", "Normalizando launchers e processos auxiliares");
+        Stage("03", "Normalizing launchers and helper processes");
 
         ulong dynamicReserve = Math.Max(1024UL, result.TotalMb * 12UL / 100UL);
         result.StandbyNeeded = before.MemoryLoad >= 80 || result.BeforeAvailableMb < dynamicReserve;
         if (result.StandbyNeeded)
             result.StandbyPurged = PurgeStandbyMemory();
-        Stage("04", result.StandbyNeeded ? "Liberando memória de espera sob pressão" : "Preservando cache útil do Windows");
+        Stage("04", result.StandbyNeeded ? "Releasing standby memory under pressure" : "Preserving useful Windows cache");
 
         Thread.Sleep(650);
         MemoryStatusEx after = ReadMemory();
         result.AfterAvailableMb = after.AvailablePhysical / 1024 / 1024;
         result.AfterLoad = after.MemoryLoad;
-        Stage("05", "Validando o estado final do sistema");
+        Stage("05", "Validating the final system state");
         return result;
     }
 
@@ -381,20 +381,20 @@ internal static class KeroseneApp
     {
         long recovered = (long)result.AfterAvailableMb - (long)result.BeforeAvailableMb;
         Console.WriteLine();
-        WL(Purple, ConsoleColor.Magenta, "  ┌────────────────────────────── RESULTADO ──────────────────────────────┐");
-        W(White, ConsoleColor.White, "  │ RAM disponível : ");
+        WL(Purple, ConsoleColor.Magenta, "  ┌────────────────────────────── RESULT ────────────────────────────────┐");
+        W(White, ConsoleColor.White, "  │ Available RAM   : ");
         W(Lavender, ConsoleColor.Magenta, String.Format("{0:N0} MB  →  {1:N0} MB", result.BeforeAvailableMb, result.AfterAvailableMb));
         WL(White, ConsoleColor.White, String.Format("  ({0:+#;-#;0} MB)", recovered).PadRight(19) + "│");
-        WL(White, ConsoleColor.White, String.Format("  │ Carga de memória: {0}% → {1}%", result.BeforeLoad, result.AfterLoad).PadRight(79) + "│");
-        WL(White, ConsoleColor.White, String.Format("  │ Prioridades ajustadas: {0}   •   auxiliares reduzidos: {1}", result.PrioritiesAdjusted, result.WorkingSetsTrimmed).PadRight(79) + "│");
-        WL(White, ConsoleColor.White, ("  │ Plano de energia: " + result.PowerPlanName).PadRight(79) + "│");
+        WL(White, ConsoleColor.White, String.Format("  │ Memory load     : {0}% → {1}%", result.BeforeLoad, result.AfterLoad).PadRight(79) + "│");
+        WL(White, ConsoleColor.White, String.Format("  │ Priorities tuned: {0}   •   helpers trimmed: {1}", result.PrioritiesAdjusted, result.WorkingSetsTrimmed).PadRight(79) + "│");
+        WL(White, ConsoleColor.White, ("  │ Power plan      : " + result.PowerPlanName).PadRight(79) + "│");
         string standby = result.StandbyNeeded
-            ? (result.StandbyPurged ? "liberada com sucesso" : "não disponível nesta máquina")
-            : "preservada — não havia pressão real";
-        WL(White, ConsoleColor.White, ("  │ Memória de espera: " + standby).PadRight(79) + "│");
+            ? (result.StandbyPurged ? "released successfully" : "not available on this machine")
+            : "preserved — no real pressure detected";
+        WL(White, ConsoleColor.White, ("  │ Standby memory  : " + standby).PadRight(79) + "│");
         WL(Purple, ConsoleColor.Magenta, "  └────────────────────────────────────────────────────────────────────────┘");
         Console.WriteLine();
-        WL(Green, ConsoleColor.Green, "  [ SYSTEM STABILIZED ]  Recuperação concluída.");
+        WL(Green, ConsoleColor.Green, "  [ SYSTEM STABILIZED ]  Recovery complete.");
         WL(Gray, ConsoleColor.DarkGray, "  created by @frstt  •  frstt.dev");
     }
 
@@ -408,10 +408,10 @@ internal static class KeroseneApp
             Directory.CreateDirectory(directory);
             string text = String.Format(
                 "Kerosene - created by @frstt - frstt.dev\r\n{0:yyyy-MM-dd HH:mm:ss}\r\n" +
-                "RAM total: {1} MB\r\nRAM disponível: {2} -> {3} MB\r\n" +
-                "Carga: {4}% -> {5}%\r\nPrioridades ajustadas: {6}\r\n" +
-                "Auxiliares reduzidos: {7}\r\nStandby necessária: {8}\r\n" +
-                "Standby liberada: {9}\r\nPlano reaplicado: {10} ({11})\r\n",
+                "Total RAM: {1} MB\r\nAvailable RAM: {2} -> {3} MB\r\n" +
+                "Memory load: {4}% -> {5}%\r\nPriorities tuned: {6}\r\n" +
+                "Helpers trimmed: {7}\r\nStandby needed: {8}\r\n" +
+                "Standby released: {9}\r\nPower plan reapplied: {10} ({11})\r\n",
                 DateTime.Now,
                 result.TotalMb,
                 result.BeforeAvailableMb,
@@ -439,7 +439,7 @@ internal static class KeroseneApp
             Console.Write("\r");
             W(Gray, ConsoleColor.DarkGray, "  Fechando automaticamente em ");
             W(Pink, ConsoleColor.Magenta, remaining.ToString());
-            W(Gray, ConsoleColor.DarkGray, " segundo(s)...   ");
+            W(Gray, ConsoleColor.DarkGray, " second(s)...   ");
             Thread.Sleep(1000);
         }
         Console.WriteLine();
@@ -462,7 +462,7 @@ internal static class KeroseneApp
         catch (Exception error)
         {
             Console.WriteLine();
-            WL(Yellow, ConsoleColor.Yellow, "  [!] A recuperação encontrou um erro nesta máquina:");
+            WL(Yellow, ConsoleColor.Yellow, "  [!] Recovery encountered an error on this machine:");
             WL(White, ConsoleColor.White, "      " + error.Message);
             WL(Gray, ConsoleColor.DarkGray, "      created by @frstt  •  frstt.dev");
             CountdownAndClose(8);
